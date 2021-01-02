@@ -1,0 +1,55 @@
+.card {
+  width: 18rem;
+  position: relative;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transition-duration: 0.4s;
+  /* transform: scale(1.03); */
+  /* box-shadow: lightgray; */
+}
+
+.cardsmall__img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.icon-mars-wrap {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px 0 0 0;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  padding: 5px 5px;
+  position: absolute;
+  left: 15rem;
+}
+
+.icon-mars {
+  color: rgb(36, 177, 233);
+  font-size: 42px;
+}
+
+.icon-venus {
+  color: rgb(245, 138, 222);
+  font-size: 42px;
+}
+
+.card-id {
+  position: absolute;
+  /* left: 13rem;
+  /* color: rgb(36, 177, 233); */
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 3px 3px;
+}
+/* .container-icon-mars {
+  /* background-color: rgba(255, 255, 255, 0.55); */
+/* width: 40px;
+    height: 40px;
+    text-align: center; */
+/* margin: 0 auto; */
+/* vertical-align: auto; */
+/* padding: 5px 6px; */
+/* position: absolute; */
+/* } */
