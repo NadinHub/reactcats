@@ -1,0 +1,33 @@
+.cat-page__img {
+    width: 100%;
+    /* position: relative; */
+
+}
+
+.cat-page-card {
+    max-width: 840px;
+}
+
+.cat-page-card {
+    position: relative;
+}
+
+.cat-page__icon {
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 3px 0 0 0;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    padding: 3px 3px;
+    position: absolute;
+    /* left: 80%; */
+  }
+  
+  .cat-page-icon-mars {
+    color: rgb(36, 177, 233);
+    font-size: 3rem;
+  }
+  
+  .cat-page-icon-venus {
+    color: rgb(245, 138, 222);
+    font-size: 3rem;
+  }
+  
