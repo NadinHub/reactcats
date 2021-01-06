@@ -132,7 +132,7 @@ export default class ItemAddForm extends Component {
                     Female
                   </label>
                 </div>
-                {/* <div className="mb-3">
+                <div className="mb-3">
                   <label htmlFor="birthdate" className="">
                     Birth date
                   </label>
@@ -142,7 +142,7 @@ export default class ItemAddForm extends Component {
                     className="form-control"
                     placeholder="Birth date"
                   />
-                </div> */}
+                </div>
                 {/* <div className="mb-3">
                   <label htmlFor="formFile" className="form-label">
                     Download pet photo
