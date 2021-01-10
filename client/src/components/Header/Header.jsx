@@ -1,6 +1,6 @@
 import React from "react";
 // import {Link} from 'react-dom'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "./header.css";
 
@@ -38,14 +38,12 @@ const Header = (props) => (
                 Features
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Pricing
-              </a>
-            </li>
+              <NavLink className="nav-link nav-item" to="/login">
+                LogIn
+              </NavLink>
             {/* </ul> */}
             {/* <div className="d-flex"> */}
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="/"
@@ -60,7 +58,7 @@ const Header = (props) => (
                 <li><a className="dropdown-item" href="/">Another action</a></li>
                 <li><a className="dropdown-item" href="/">Something else here</a></li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

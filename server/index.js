@@ -8,7 +8,7 @@ const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "1941510",
-  database: "REACTCATDataBase",
+  database: "reactcatdb",
 });
 
 app.use(cors());
@@ -16,22 +16,28 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/api/insert", (req, res) => {
-  const catName = req.body.catname;
-  const parentCatteryName = req.body.parentcattery;
-  const catSex = req.body.sex;
-  console.log(`cat name is ${catName}, parentCatteryName is ${parentCatteryName}, catSex is ${catSex}`);
+  const cat_name = req.body.catname;
+  const parent_cattery_name = req.body.parentcattery;
+  const cat_sex = req.body.sex;
+  const cat_birth_date = req.body.birthDate;
+  console.log(`cat_name is ${cat_name}, parent_cattery_name is ${parent_cattery_name}, cat_sex is ${cat_sex}}, 
+  birth date is ${cat_birth_date}`);
   const sqlInsert =
-    "INSERT INTO Cats (catName, parentCatteryName, catSex) VALUES (?,?,?);";
-  db.query(sqlInsert, [catName, parentCatteryName, catSex], (err, result) => {
-    if (err) console.log(err);
-    else console.log(result);
-  });
+    "INSERT INTO Cat (cat_name, parent_cattery_name, cat_sex, cat_birth_date) VALUES (?,?,?,?);";
+  db.query(
+    sqlInsert,
+    [cat_name, parent_cattery_name, cat_sex, cat_birth_date],
+    (err, result) => {
+      if (err) console.log(err);
+      else console.log(result);
+    }
+  );
 });
 
 // app.get("/", (req, res) => {
 
 //   const sqlInsert =
-//     "INSERT INTO Cats (catName, parentCatteryName, catSex) VALUES ('Arny', 'Lambent Eyes','male');";
+//     "INSERT INTO Cats (catName, parentCatteryNamet cat_sex) VALUES ('Arny', 'Lambent Eyes','male');";
 //   db.query(sqlInsert, (err, result) => {
 //     if (err) console.log(err);
 //     else res.send("hello 1");

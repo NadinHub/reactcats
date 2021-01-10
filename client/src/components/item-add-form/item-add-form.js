@@ -7,6 +7,7 @@ export default class ItemAddForm extends Component {
     parentcattery: "",
     catname: "",
     sex: "",
+    birthDate: "",
   };
 
   onParentCatteryChange = (e) => {
@@ -15,7 +16,7 @@ export default class ItemAddForm extends Component {
   };
 
   onCatNameChange = (e) => {
-    console.log(e.target.value);
+    console.log(`Catname set to ${e.target.value}`);
     this.setState({ catname: e.target.value });
   };
 
@@ -24,30 +25,33 @@ export default class ItemAddForm extends Component {
     this.setState({ sex: e.target.value });
   };
 
+  setBirthDate = (e) => {
+    console.log(`Birthdate set to ${e.target.value}`);
+    this.setState({ birthDate: e.target.value });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.catname);
     this.props.onItemAdded(
       this.state.parentcattery,
       this.state.catname,
-      this.state.sex
+      this.state.sex,
+      this.state.birthDate,
     );
     Axios.post("http://localhost:3001/api/insert", {
       catname: this.state.catname,
       parentcattery: this.state.parentcattery,
       sex: this.state.sex,
-    })
-      .then((res) => {
-        alert("successful insert", res);
-      })
-      // .then(() => {
-      //   this.setState({ parentcattery: "" }); //???? Почему не ставится?
-      // });
+      birthDate: this.state.birthDate,
+    }).then((res) => {
+      alert("successful insert", res);
+    });
+    // .then(() => {
+    //   this.setState({ parentcattery: "" }); //???? Почему не ставится?
+    // });
     // clean (update value={this.state.parentcattery})
     //input in the controlled input component
-    this.setState({ parentcattery: "" });
-    this.setState({ catname: "" });
-    this.setState({ sex: "" });
+    this.setState({ parentcattery: "", catname: "", sex: "", birthDate: "" });
   };
 
   // submitAddCat {
@@ -120,7 +124,10 @@ export default class ItemAddForm extends Component {
                     Male
                   </label>
                 </div>
-                <div className="m-3 form-check form-check-inline" onChange={this.setGender}>
+                <div
+                  className="m-3 form-check form-check-inline"
+                  onChange={this.setGender}
+                >
                   <input
                     className="form-check-input"
                     type="radio"
@@ -141,14 +148,15 @@ export default class ItemAddForm extends Component {
                     name="birthdate"
                     className="form-control"
                     placeholder="Birth date"
+                    onChange={this.setBirthDate}
                   />
                 </div>
-                {/* <div className="mb-3">
+                <div className="mb-3">
                   <label htmlFor="formFile" className="form-label">
                     Download pet photo
                   </label>
                   <input className="form-control" type="file" id="formFile" />
-                </div> */}
+                </div>
                 <button
                   type="submit"
                   className="btn w-100 btn-primary"

@@ -7,6 +7,7 @@ import CatsList from "../../containers/CatsList/CatsList.js";
 import ItemFilter from "../item-filter";
 import SearchPanel from "../search-panel/search-panel";
 import CatPage from "../cat-page";
+import LoginForm from "../loginForm/loginForm";
 
 // import ItemAddForm from '../item-add-form';
 // import CardAd from '../CardAd/CardAd';
@@ -142,10 +143,10 @@ export default class App extends Component {
     });
   };
 
-  addItem = (newParentCattery, newCatName, newSex) => {
+  addItem = (newParentCattery, newCatName, newSex, newBirthDate) => {
     let maxId = 1000;
 
-    console.log("Item added", newParentCattery);
+    // console.log("Item added", newParentCattery);
     // generate id ? - usually on server side
     const newItem = {
       id: ++maxId,
@@ -154,7 +155,7 @@ export default class App extends Component {
       name: newCatName,
       parentcattery: newParentCattery,
       imageProfile: "./img/id2-1.jpg",
-      birthDate: "03/09/2014",
+      birthDate: newBirthDate,
     };
     // add element in array ?
 
@@ -201,10 +202,12 @@ export default class App extends Component {
     const visibleItems = this.filter(this.searchName(catsData, term), filter);
     return (
       <Router>
-        <div className="container">
-          <Header />
-          {/* Вывод данных из хранилища} */}
+        <Header />
+        {/* Вывод данных из хранилища} */}
+        <main className="container">
           <Switch>
+            <Route exact path="/" component={Main} />
+            <Route exect path="/login" component={LoginForm} />
             <Route exact path="/mypage">
               <PageHeader
                 pageheader={appheader.pageheader}
@@ -225,7 +228,6 @@ export default class App extends Component {
                 onSearchChange={this.onSearchChange}
               />
             </Route>
-            <Route exact path="/" component={Main} />
             {/* <Route exact path="/mypage/:id" component={CatPage} /> */}
             <Route
               exact
@@ -237,7 +239,7 @@ export default class App extends Component {
             />
             <Route component={Other} />
           </Switch>
-        </div>
+        </main>
       </Router>
     );
   }
